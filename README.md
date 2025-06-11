@@ -1,4 +1,4 @@
-# Sorting Algorithms Benchmark in Java
+# Sorting Algorithms in Java
 
 This project implements and compares the performance of five sorting algorithms in Java:
 
@@ -6,7 +6,7 @@ This project implements and compares the performance of five sorting algorithms 
 - Merge Sort
 - Heap Sort
 - Quick Sort
-- Modified Quick Sort (Median-of-Three + Insertion Sort Hybrid)
+- Modified Quick Sort (Median-of-Three + Insertion Sort)
 
 ## Goal
 
@@ -30,9 +30,8 @@ Each sorting algorithm runs 5 times per input size, and the average execution ti
 - **Manual Max-Heap:** Heap Sort is implemented manually using `ArrayList`, without Java’s built-in `PriorityQueue`.
 - **Random Pivot Selection:** Quick Sort selects pivots randomly to avoid worst-case performance on sorted data.
 - **Modified Quick Sort:**
-    - Uses **Median-of-Three** strategy for pivot selection.
-    - Falls back to **Insertion Sort** for small subarrays (≤ 15 elements).
-    - Performs exceptionally well on sorted and reverse-sorted arrays.
+    - Uses Median-of-Three strategy for pivot selection.
+    - Switches to Insertion Sort for small subarrays (≤ 15 elements).
 
 ## How to Run
 
