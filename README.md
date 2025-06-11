@@ -1,17 +1,19 @@
 # Sorting Algorithms Benchmark in Java
 
-This project implements and compares the performance of several sorting algorithms in Java:
+This project implements and compares the performance of five sorting algorithms in Java:
 
 - Insertion Sort
 - Merge Sort
-- (Upcoming: Heap Sort, Quick Sort, Modified Quick Sort)
+- Heap Sort
+- Quick Sort
+- Modified Quick Sort (Median-of-Three + Insertion Sort Hybrid)
 
 ## Goal
 
-To observe how different comparison-based sorting algorithms perform with increasing input sizes on:
+To observe how sorting algorithms behave under different conditions and input sizes, specifically:
 - Randomly generated data
 - Already sorted data
-- Reverse sorted data (coming soon)
+- Reverse sorted data
 
 ## Input Sizes Tested
 
@@ -23,8 +25,17 @@ To observe how different comparison-based sorting algorithms perform with increa
   
 Each sorting algorithm runs 5 times per input size, and the average execution time is recorded.
 
-## Heap Sort Implementation Note
+## Special Features
 
-Unlike typical implementations that use Java’s built-in `PriorityQueue` (which is a min-heap), this project uses a **manually implemented max-heap** built with an `ArrayList`. Elements are inserted one by one using a custom `insert()` method (percolating up), and removed using a `remove()` method (percolating down) to form the sorted result.
+- **Manual Max-Heap:** Heap Sort is implemented manually using `ArrayList`, without Java’s built-in `PriorityQueue`.
+- **Random Pivot Selection:** Quick Sort selects pivots randomly to avoid worst-case performance on sorted data.
+- **Modified Quick Sort:**
+    - Uses **Median-of-Three** strategy for pivot selection.
+    - Falls back to **Insertion Sort** for small subarrays (≤ 15 elements).
+    - Performs exceptionally well on sorted and reverse-sorted arrays.
 
-This approach reflects a deeper understanding of heap operations and binary heap structure — including child/parent index management — without relying on library-provided abstractions.
+## How to Run
+
+```bash
+javac SortTest.java
+java SortTest
